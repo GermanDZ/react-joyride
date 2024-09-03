@@ -48,13 +48,14 @@ export default class JoyridePortal extends React.Component<Props> {
     }
 
     if (!isReact16) {
-      // eslint-disable-next-line react/no-deprecated
-      ReactDOM.unmountComponentAtNode(this.node);
+      // ReactDOM.unmountComponentAtNode(this.node);
     }
 
     if (this.node.parentNode === document.body) {
-      this.root?.unmount();
-      this.node = null;
+      setTimeout(() => {
+        this.root?.unmount();
+        this.node = null;
+      }, 0);
     }
   }
 
